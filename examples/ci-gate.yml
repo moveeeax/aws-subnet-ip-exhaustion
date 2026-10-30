@@ -1,0 +1,53 @@
+# A scheduled subnet capacity gate.
+#
+# Copy into .github/workflows/ in the repo that owns your VPCs. The history file
+# is restored from cache before the run and saved after it, so each day adds one
+# snapshot per subnet and the forecast gets sharper instead of resetting.
+name: subnet-ip-capacity
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # for aws-actions/configure-aws-credentials
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install git+https://github.com/moveeeax/aws-subnet-ip-exhaustion@v0.1.0
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_READONLY_ROLE_ARN }}
+          aws-region: eu-central-1
+
+      - name: Restore the snapshot history
+        uses: actions/cache/restore@v4
+        with:
+          path: subnet-ips.ndjson
+          key: subnet-ips-${{ github.run_id }}
+          restore-keys: subnet-ips-
+
+      - name: Check capacity
+        run: |
+          aws-subnet-ip-exhaustion \
+            --region eu-central-1 \
+            --history subnet-ips.ndjson \
+            --horizon-days 30 \
+            --format markdown \
+            --fail-on critical | tee $GITHUB_STEP_SUMMARY
+
+      - name: Save the snapshot history
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: subnet-ips.ndjson
+          key: subnet-ips-${{ github.run_id }}

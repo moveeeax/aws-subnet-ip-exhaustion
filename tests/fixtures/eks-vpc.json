@@ -1,0 +1,1951 @@
+{
+ "region": "eu-central-1",
+ "subnets": [
+  {
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "VpcId": "vpc-0a1b2c3d4e5f6000",
+   "CidrBlock": "10.0.1.0/24",
+   "AvailabilityZone": "eu-central-1a",
+   "AvailableIpAddressCount": 51,
+   "Tags": [
+    {
+     "Key": "Name",
+     "Value": "eks-pods-1a"
+    },
+    {
+     "Key": "Environment",
+     "Value": "prod"
+    }
+   ]
+  },
+  {
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "VpcId": "vpc-0a1b2c3d4e5f6000",
+   "CidrBlock": "10.0.2.0/28",
+   "AvailabilityZone": "eu-central-1b",
+   "AvailableIpAddressCount": 1,
+   "Tags": [
+    {
+     "Key": "Name",
+     "Value": "public-1b"
+    },
+    {
+     "Key": "Environment",
+     "Value": "prod"
+    }
+   ]
+  },
+  {
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "VpcId": "vpc-0a1b2c3d4e5f6000",
+   "CidrBlock": "10.0.16.0/20",
+   "AvailabilityZone": "eu-central-1c",
+   "AvailableIpAddressCount": 4049,
+   "Tags": [
+    {
+     "Key": "Name",
+     "Value": "data-1c"
+    },
+    {
+     "Key": "Environment",
+     "Value": "prod"
+    }
+   ]
+  }
+ ],
+ "network_interfaces": [
+  {
+   "NetworkInterfaceId": "eni-00000000000000001",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000001"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000002",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000002"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000003",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000003"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000004",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000004"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000005",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000005"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000006",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000006"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000007",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000007"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000008",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000008"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000009",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-00000000000000009"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-0000000000000000a"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-0000000000000000b"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-0000000000000000c"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000000d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000000e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000000f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000000f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000010",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000010",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000011",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000011",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000012",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000012",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000013",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000013",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000014",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000014",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000015",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000015",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000016",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000016",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000017",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000017",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000018",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000018",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000019",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000019",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000001f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000001f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000020",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000020",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000021",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000021",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000022",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000022",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000023",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000023",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000024",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000024",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000025",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000025",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000026",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000026",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000027",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000027",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000028",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000028",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000029",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000029",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000002f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000002f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000030",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000030",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000031",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000031",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000032",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000032",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000033",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000033",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000034",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000034",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000035",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000035",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000036",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000036",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000037",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000037",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000038",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000038",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000039",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000039",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000003f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000003f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000040",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000040",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000041",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000041",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000042",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000042",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000043",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000043",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000044",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000044",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000045",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000045",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000046",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000046",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000047",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000047",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000048",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000048",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000049",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000049",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000004f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000004f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000050",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000050",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000051",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000051",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000052",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000052",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000053",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000053",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000054",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000054",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000055",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000055",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000056",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000056",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000057",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000057",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000058",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000058",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000059",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000059",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000005f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000005f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000060",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000060",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000061",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000061",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000062",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000062",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000063",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000063",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000064",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000064",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000065",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000065",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000066",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000066",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000067",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000067",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000068",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000068",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000069",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000069",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000006f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000006f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000070",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000070",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000071",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000071",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000072",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000072",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000073",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000073",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000074",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000074",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000075",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000075",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000076",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000076",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000077",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000077",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000078",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000078",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000079",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000079",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000007f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000007f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000080",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000080",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000081",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000081",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000082",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000082",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000083",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000083",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000084",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000084",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000085",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000085",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000086",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000086",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000087",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000087",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000088",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000088",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000089",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000089",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000008f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000008f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000090",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000090",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000091",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000091",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000092",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000092",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000093",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000093",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000094",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000094",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000095",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000095",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000096",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000096",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000097",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000097",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000098",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000098",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-00000000000000099",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-00000000000000099",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009a",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009a",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009b",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009b",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009c",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009c",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009d",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009e",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009e",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-0000000000000009f",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-0000000000000009f",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a0",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a1",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a2",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a3",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a4",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a5",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a6",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a7",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a8",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000a9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000a9",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000aa",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000aa",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ab",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000ab",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ac",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000ac",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ad",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000ad",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ae",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000ae",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000af",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000af",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b0",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b1",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b2",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b3",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b4",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b5",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b6",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b7",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b8",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000b9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000b9",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ba",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000ba",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000bb",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000bb",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000bc",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000bc",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000bd",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000bd",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000be",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000be",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000bf",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000bf",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000c0",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000c1",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000c2",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000c3",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "aws-K8S-i-000000000000000c4",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "Amazon EKS prod-cluster",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "ELB app/prod-ingress/0a1b2c3d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "ELB app/prod-ingress/0a1b2c3d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60001",
+   "InterfaceType": "interface",
+   "Description": "ELB net/prod-grpc/4d5e6f70",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000c9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "nat_gateway",
+   "Description": "Interface for NAT Gateway nat-0a1b2c3d4e5f6001",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ca",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "nat_gateway",
+   "Description": "Interface for NAT Gateway nat-0a1b2c3d4e5f6002",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000cb",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "ELB app/prod-ingress/0a1b2c3d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000cc",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "ELB app/prod-ingress/0a1b2c3d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000cd",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "ELB app/prod-ingress/0a1b2c3d",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ce",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000ce"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000cf",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000cf"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d0"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d1"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60002",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d2"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d3"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d4"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d5"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d6"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d7"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d8"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000d9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000d9"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000da",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000da"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000db",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000db"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000dc",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000dc"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000dd",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000dd"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000de",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000de"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000df",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000df"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e0"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e1"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e2"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e3"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e4"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e5"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e6"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e7"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e8"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000e9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000e9"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ea",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000ea"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000eb",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000eb"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ec",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "",
+   "Status": "in-use",
+   "Attachment": {
+    "InstanceId": "i-000000000000000ec"
+   }
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ed",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ee",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000ef",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f0",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f1",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f2",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f3",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f4",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "interface",
+   "Description": "RDSNetworkInterface",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f5",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-ecr.api",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f6",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-ecr.dkr",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f7",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-s3",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f8",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-logs",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000f9",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-sts",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000fa",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-secretsmanager",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000fb",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-ssm",
+   "Status": "in-use"
+  },
+  {
+   "NetworkInterfaceId": "eni-000000000000000fc",
+   "SubnetId": "subnet-0a1b2c3d4e5f60003",
+   "InterfaceType": "vpc_endpoint",
+   "Description": "VPC Endpoint Interface vpce-ssmmessages",
+   "Status": "in-use"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+{"free": 251, "in_use": 0, "subnet_id": "subnet-0a1b2c3d4e5f60001", "timestamp": "2026-09-10T09:00:00+00:00", "usable": 251}
+{"free": 191, "in_use": 60, "subnet_id": "subnet-0a1b2c3d4e5f60001", "timestamp": "2026-09-20T09:00:00+00:00", "usable": 251}
+{"free": 131, "in_use": 120, "subnet_id": "subnet-0a1b2c3d4e5f60001", "timestamp": "2026-09-30T09:00:00+00:00", "usable": 251}
+{"free": 11, "in_use": 0, "subnet_id": "subnet-0a1b2c3d4e5f60002", "timestamp": "2026-09-30T09:00:00+00:00", "usable": 11}
+{"free": 4061, "in_use": 30, "subnet_id": "subnet-0a1b2c3d4e5f60003", "timestamp": "2026-09-30T09:00:00+00:00", "usable": 4091}
