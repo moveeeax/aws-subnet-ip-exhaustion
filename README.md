@@ -73,6 +73,11 @@ aws-subnet-ip-exhaustion --horizon-days 14 --fail-on critical
 aws-subnet-ip-exhaustion --format markdown >> "$GITHUB_STEP_SUMMARY"
 ```
 
+Scope flags: `--region` and `--profile` pick the AWS session (both fall back to
+the usual boto3 defaults), `--vpc-id` and `--subnet-id` limit the run to specific
+VPCs or subnets, `--tag KEY=VALUE` filters subnets by tag. The last three can be
+repeated. `aws-subnet-ip-exhaustion --help` lists every flag.
+
 Exit codes: `0` clean, `1` findings at or above `--fail-on`, `2` the tool could
 not do its job (bad arguments, unreadable history, failed API call). A traceback
 is never an exit code.
