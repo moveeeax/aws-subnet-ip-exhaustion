@@ -1,7 +1,7 @@
 # aws-subnet-ip-exhaustion
 
 [![ci](https://github.com/moveeeax/aws-subnet-ip-exhaustion/actions/workflows/ci.yml/badge.svg)](https://github.com/moveeeax/aws-subnet-ip-exhaustion/actions/workflows/ci.yml)
-[![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](pyproject.toml)
+[![python](https://img.shields.io/badge/python-3.11%E2%80%933.15-blue)](pyproject.toml)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Forecast when each VPC subnet runs out of free IP addresses — and show what is
