@@ -1,7 +1,7 @@
 # aws-subnet-ip-exhaustion
 
 [![ci](https://github.com/moveeeax/aws-subnet-ip-exhaustion/actions/workflows/ci.yml/badge.svg)](https://github.com/moveeeax/aws-subnet-ip-exhaustion/actions/workflows/ci.yml)
-[![python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](pyproject.toml)
+[![python](https://img.shields.io/badge/python-3.11%E2%80%933.15-blue)](pyproject.toml)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Forecast when each VPC subnet runs out of free IP addresses — and show what is
@@ -72,6 +72,11 @@ aws-subnet-ip-exhaustion --tag Environment=prod --format json | jq '.subnets[] |
 aws-subnet-ip-exhaustion --horizon-days 14 --fail-on critical
 aws-subnet-ip-exhaustion --format markdown >> "$GITHUB_STEP_SUMMARY"
 ```
+
+Scope flags: `--region` and `--profile` pick the AWS session (both fall back to
+the usual boto3 defaults), `--vpc-id` and `--subnet-id` limit the run to specific
+VPCs or subnets, `--tag KEY=VALUE` filters subnets by tag. The last three can be
+repeated. `aws-subnet-ip-exhaustion --help` lists every flag.
 
 Exit codes: `0` clean, `1` findings at or above `--fail-on`, `2` the tool could
 not do its job (bad arguments, unreadable history, failed API call). A traceback

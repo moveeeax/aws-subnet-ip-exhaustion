@@ -18,36 +18,39 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - run: pip install git+https://github.com/moveeeax/aws-subnet-ip-exhaustion@v0.1.0
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_READONLY_ROLE_ARN }}
           aws-region: eu-central-1
 
       - name: Restore the snapshot history
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: subnet-ips.ndjson
           key: subnet-ips-${{ github.run_id }}
           restore-keys: subnet-ips-
 
       - name: Check capacity
+        # shell: bash adds -o pipefail. Without it the step runs as `bash -e`,
+        # the pipeline's exit status is tee's, and --fail-on never fails the job.
+        shell: bash
         run: |
           aws-subnet-ip-exhaustion \
             --region eu-central-1 \
             --history subnet-ips.ndjson \
             --horizon-days 30 \
             --format markdown \
-            --fail-on critical | tee $GITHUB_STEP_SUMMARY
+            --fail-on critical | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Save the snapshot history
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: subnet-ips.ndjson
           key: subnet-ips-${{ github.run_id }}
