@@ -18,19 +18,19 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
       - run: pip install git+https://github.com/moveeeax/aws-subnet-ip-exhaustion@v0.1.0
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_READONLY_ROLE_ARN }}
           aws-region: eu-central-1
 
       - name: Restore the snapshot history
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: subnet-ips.ndjson
           key: subnet-ips-${{ github.run_id }}
@@ -50,7 +50,7 @@ jobs:
 
       - name: Save the snapshot history
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: subnet-ips.ndjson
           key: subnet-ips-${{ github.run_id }}
