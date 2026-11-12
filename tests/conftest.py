@@ -5,7 +5,18 @@ import pytest
 FIXTURES = "tests/fixtures"
 
 
-def eni(index: int, subnet_id: str, interface_type: str = "interface", description: str = "", instance: bool = True) -> dict:
+def eni(
+    index: int,
+    subnet_id: str,
+    interface_type: str = "interface",
+    description: str = "",
+    instance: bool = True,
+    secondaries: int | None = None,
+    prefixes: int = 0,
+) -> dict:
+    """One ENI. ``secondaries`` adds a ``PrivateIpAddresses`` list (primary plus
+    that many), ``prefixes`` adds delegated /28s; without either the record looks
+    like a payload saved before addresses were collected."""
     record: dict = {
         "NetworkInterfaceId": f"eni-{subnet_id[-4:]}{index:04d}",
         "SubnetId": subnet_id,
@@ -15,6 +26,13 @@ def eni(index: int, subnet_id: str, interface_type: str = "interface", descripti
     }
     if instance and interface_type == "interface" and not description:
         record["Attachment"] = {"InstanceId": f"i-{index:08x}"}
+    if secondaries is not None:
+        record["PrivateIpAddresses"] = [
+            {"PrivateIpAddress": f"10.{index // 256 % 256}.{index % 256}.{n + 4}", "Primary": n == 0}
+            for n in range(secondaries + 1)
+        ]
+    if prefixes:
+        record["Ipv4Prefixes"] = [{"Ipv4Prefix": f"10.200.{index % 256}.{16 * n}/28"} for n in range(prefixes)]
     return record
 
 

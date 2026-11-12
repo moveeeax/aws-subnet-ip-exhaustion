@@ -6,6 +6,7 @@ from aws_subnet_ip_exhaustion.capacity import (
     RESERVED_PER_SUBNET,
     classify_eni,
     count_consumers,
+    eni_addresses,
     subnet_total_addresses,
     usable_addresses,
     utilisation_pct,
@@ -83,3 +84,46 @@ def test_consumer_counts_use_a_stable_order_and_skip_empty_classes():
     )
     assert counts == {"instance": 1, "eks_pod": 2, "nat_gateway": 1}
     assert list(counts) == ["instance", "eks_pod", "nat_gateway"]
+
+
+def test_an_eni_without_address_fields_counts_as_its_primary_address():
+    assert eni_addresses({"InterfaceType": "interface"}) == 1
+    assert eni_addresses({"PrivateIpAddresses": [], "Ipv4Prefixes": []}) == 1
+
+
+def test_secondary_ips_count_one_address_each():
+    eni = {"PrivateIpAddresses": [{"PrivateIpAddress": f"10.0.1.{n}", "Primary": n == 10} for n in range(10, 25)]}
+    assert eni_addresses(eni) == 15
+
+
+def test_a_delegated_prefix_counts_sixteen_addresses():
+    eni = {
+        "PrivateIpAddresses": [{"PrivateIpAddress": "10.0.1.10", "Primary": True}],
+        "Ipv4Prefixes": [{"Ipv4Prefix": "10.0.1.32/28"}, {"Ipv4Prefix": "10.0.1.48/28"}],
+    }
+    assert eni_addresses(eni) == 1 + 2 * 16
+
+
+def test_a_prefix_is_sized_from_its_cidr_and_an_unreadable_one_falls_back_to_a_slash28():
+    assert eni_addresses({"Ipv4Prefixes": [{"Ipv4Prefix": "10.0.1.0/27"}]}) == 1 + 32
+    assert eni_addresses({"Ipv4Prefixes": [{"Ipv4Prefix": "garbage"}]}) == 1 + 16
+
+
+def test_consumer_counts_are_addresses_not_enis():
+    counts = count_consumers(
+        [
+            {
+                "InterfaceType": "interface",
+                "Description": "aws-K8S-i-1",
+                "PrivateIpAddresses": [{"PrivateIpAddress": f"10.0.1.{n}"} for n in range(10)],
+            },
+            {
+                "InterfaceType": "interface",
+                "Description": "aws-K8S-i-2",
+                "PrivateIpAddresses": [{"PrivateIpAddress": "10.0.1.20"}],
+                "Ipv4Prefixes": [{"Ipv4Prefix": "10.0.1.32/28"}],
+            },
+            {"InterfaceType": "interface", "Attachment": {"InstanceId": "i-1"}},
+        ]
+    )
+    assert counts == {"instance": 1, "eks_pod": 10 + 17}
