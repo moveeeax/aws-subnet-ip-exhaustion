@@ -5,7 +5,7 @@ import os
 
 import pytest
 
-from aws_subnet_ip_exhaustion.collect import CollectError, load_payload, parse_tag_filters
+from aws_subnet_ip_exhaustion.collect import CollectError, _trim_eni, load_payload, parse_tag_filters
 
 FIXTURE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures", "eks-vpc.json")
 
@@ -27,7 +27,7 @@ def test_loading_the_fixture_payload():
     payload = load_payload(FIXTURE)
     assert payload["region"] == "eu-central-1"
     assert len(payload["subnets"]) == 3
-    assert len(payload["network_interfaces"]) == 252
+    assert len(payload["network_interfaces"]) == 78
 
 
 def test_network_interfaces_default_to_empty(tmp_path):
@@ -51,3 +51,32 @@ def test_a_malformed_payload_is_rejected_with_a_readable_message(tmp_path, conte
     path.write_text(content, encoding="utf-8")
     with pytest.raises(CollectError, match=message):
         load_payload(str(path))
+
+
+def test_eni_trimming_keeps_addresses_and_prefixes_but_drops_the_rest():
+    raw = {
+        "NetworkInterfaceId": "eni-0a1b",
+        "SubnetId": "subnet-a",
+        "InterfaceType": "interface",
+        "MacAddress": "02:00:00:00:00:01",
+        "PrivateIpAddresses": [
+            {
+                "PrivateIpAddress": "10.0.1.10",
+                "Primary": True,
+                "PrivateDnsName": "ip-10-0-1-10.eu-central-1.compute.internal",
+                "Association": {"PublicIp": "203.0.113.10"},
+            },
+            {"PrivateIpAddress": "10.0.1.11", "Primary": False},
+        ],
+        "Ipv4Prefixes": [{"Ipv4Prefix": "10.0.1.32/28"}],
+    }
+    assert _trim_eni(raw) == {
+        "NetworkInterfaceId": "eni-0a1b",
+        "SubnetId": "subnet-a",
+        "InterfaceType": "interface",
+        "PrivateIpAddresses": [
+            {"PrivateIpAddress": "10.0.1.10", "Primary": True},
+            {"PrivateIpAddress": "10.0.1.11", "Primary": False},
+        ],
+        "Ipv4Prefixes": [{"Ipv4Prefix": "10.0.1.32/28"}],
+    }

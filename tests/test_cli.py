@@ -50,7 +50,8 @@ def test_json_output_carries_the_acceptance_numbers(capsys):
     assert pods["utilisation_pct"] == 79.7
     assert pods["severity"] == "warn"
     assert pods["days_to_exhaustion"] is None
-    assert pods["consumers"]["eks_pod"] == 184
+    assert pods["consumers"]["eks_pod"] == 135
+    assert pods["enis"] == 26
 
 
 def test_markdown_output_is_a_table(capsys):

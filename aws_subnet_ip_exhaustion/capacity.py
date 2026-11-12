@@ -1,4 +1,4 @@
-"""Subnet CIDR arithmetic and ENI consumer classification.
+"""Subnet CIDR arithmetic, per-ENI address counts and consumer classification.
 
 AWS reserves five addresses in every subnet: the network address, the VPC router
 (.1), the Amazon-provided DNS (.2), a future-use address (.3) and the broadcast
@@ -11,6 +11,9 @@ from __future__ import annotations
 import ipaddress
 
 RESERVED_PER_SUBNET = 5
+
+#: EC2 delegates IPv4 prefixes to an ENI as /28s, 16 addresses each.
+IPV4_PREFIX_ADDRESSES = 16
 
 #: Interface types that map directly onto a consumer, no description needed.
 _TYPE_MAP = {
@@ -76,6 +79,26 @@ def usable_addresses(cidr: str) -> int:
     return max(subnet_total_addresses(cidr) - RESERVED_PER_SUBNET, 0)
 
 
+def _prefix_addresses(prefix: dict) -> int:
+    value = str(prefix.get("Ipv4Prefix") or "")
+    try:
+        return ipaddress.ip_network(value, strict=False).num_addresses
+    except ValueError:
+        return IPV4_PREFIX_ADDRESSES
+
+
+def eni_addresses(eni: dict) -> int:
+    """Return the subnet addresses one ENI holds.
+
+    That is every private IPv4 address on it (the primary plus any secondaries,
+    which is where the VPC CNI puts pod IPs) and every delegated prefix, a /28
+    in prefix mode. A payload saved before these fields were collected has
+    neither, and the ENI counts as its single primary address.
+    """
+    addresses = len(eni.get("PrivateIpAddresses") or []) or 1
+    return addresses + sum(_prefix_addresses(p) for p in eni.get("Ipv4Prefixes") or [])
+
+
 def classify_eni(eni: dict) -> str:
     """Map one ENI onto the thing that is really consuming the address.
 
@@ -101,11 +124,16 @@ def classify_eni(eni: dict) -> str:
 
 
 def count_consumers(enis: list[dict]) -> dict[str, int]:
-    """Count ENIs per consumer class, dropping classes with nothing in them."""
+    """Count addresses per consumer class, dropping classes with nothing in them.
+
+    Every address on an ENI goes to that ENI's class, so the secondary IPs a
+    node's primary ENI holds for pods count as ``instance``: EC2 does not say
+    which of them the CNI has handed out.
+    """
     counts: dict[str, int] = {}
     for eni in enis:
         consumer = classify_eni(eni)
-        counts[consumer] = counts.get(consumer, 0) + 1
+        counts[consumer] = counts.get(consumer, 0) + eni_addresses(eni)
     return {name: counts[name] for name in CONSUMER_ORDER if name in counts}
 
 

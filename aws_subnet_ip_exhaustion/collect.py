@@ -25,7 +25,11 @@ _ENI_FIELDS = (
     "Description",
     "Status",
     "Attachment",
+    "PrivateIpAddresses",
+    "Ipv4Prefixes",
 )
+#: Per-address fields worth keeping; DNS names and public associations are not.
+_PRIVATE_IP_FIELDS = ("PrivateIpAddress", "Primary")
 
 
 class CollectError(Exception):
@@ -48,6 +52,15 @@ def parse_tag_filters(values: list[str]) -> list[dict]:
 
 def _trim(record: dict, fields: tuple[str, ...]) -> dict:
     return {field: record[field] for field in fields if field in record}
+
+
+def _trim_eni(eni: dict) -> dict:
+    trimmed = _trim(eni, _ENI_FIELDS)
+    if "PrivateIpAddresses" in trimmed:
+        trimmed["PrivateIpAddresses"] = [_trim(ip, _PRIVATE_IP_FIELDS) for ip in trimmed["PrivateIpAddresses"]]
+    if "Ipv4Prefixes" in trimmed:
+        trimmed["Ipv4Prefixes"] = [_trim(p, ("Ipv4Prefix",)) for p in trimmed["Ipv4Prefixes"]]
+    return trimmed
 
 
 def collect(
@@ -90,7 +103,7 @@ def collect(
             eni_filters = [{"Name": "subnet-id", "Values": batch}]
             pages = ec2.get_paginator("describe_network_interfaces").paginate(Filters=eni_filters)
             for page in pages:
-                enis.extend(_trim(e, _ENI_FIELDS) for e in page["NetworkInterfaces"])
+                enis.extend(_trim_eni(e) for e in page["NetworkInterfaces"])
     except (BotoCoreError, ClientError) as exc:
         raise CollectError(f"EC2 API call failed: {exc}") from exc
 

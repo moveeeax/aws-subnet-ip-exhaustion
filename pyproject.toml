@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aws-subnet-ip-exhaustion"
 version = "0.1.0"
-description = "Forecast when each VPC subnet runs out of free IP addresses, counting the ENIs that really consume them."
+description = "Forecast when each VPC subnet runs out of free IP addresses, counting every address each ENI really holds."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

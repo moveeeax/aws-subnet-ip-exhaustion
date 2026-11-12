@@ -11,7 +11,7 @@ AWS gives you `AvailableIpAddressCount` and stops there. That number has no
 memory, so it cannot tell you whether the subnet lost four hundred addresses this
 week or has been flat since the VPC was created, and it never says what is
 consuming the space. On EKS that matters a lot: the VPC CNI hands every pod a
-real ENI address, and one node group scale-out can eat a `/24` in minutes. The
+real subnet address, and one node group scale-out can eat a `/24` in minutes. The
 first signal is usually `InsufficientFreeAddressesInSubnet` in an autoscaling
 event log, three layers away from the actual cause.
 
@@ -39,7 +39,7 @@ $ aws-subnet-ip-exhaustion --from-json tests/fixtures/eks-vpc.json
 SEVERITY  SUBNET       CIDR          AZ             USED/USABLE  FREE  UTIL%  DAYS LEFT  TOP CONSUMER
 --------  -----------  ------------  -------------  -----------  ----  -----  ---------  ------------
 CRITICAL  public-1b    10.0.2.0/28   eu-central-1b  10/11        1     90.9   n/a        instance 5
-WARN      eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   n/a        eks_pod 184
+WARN      eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   n/a        eks_pod 135
 ok        data-1c      10.0.16.0/20  eu-central-1c  42/4091      4049  1.0    n/a        instance 26
 
 3 subnet(s): 1 critical, 1 warn, 1 ok
@@ -56,7 +56,7 @@ the fixture history has it losing 60 addresses every ten days:
 $ aws-subnet-ip-exhaustion --from-json tests/fixtures/eks-vpc.json \
     --history tests/fixtures/history-losing.ndjson --trend-window 3650 --no-write
 ...
-CRITICAL  eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   13.3       eks_pod 184
+CRITICAL  eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   13.3       eks_pod 135
 ```
 
 That is the case worth having a tool for. At 79.7% the subnet is below any
@@ -85,16 +85,31 @@ is never an exit code.
 ## How it works
 
 **Real capacity, not the reported number.** Total addresses come from the CIDR,
-minus the five AWS reserves in every subnet, minus the ENIs actually present. A
-`/24` therefore has 251 usable addresses, not 256 and not 254. When the result
-disagrees with `AvailableIpAddressCount`, both numbers are reported — a gap means
-something is holding addresses outside the ENI list.
+minus the five AWS reserves in every subnet, minus the addresses the ENIs in it
+actually hold. A `/24` therefore has 251 usable addresses, not 256 and not 254.
+
+**Addresses, not ENIs.** An ENI holds its primary address, every secondary
+private IP (`PrivateIpAddresses`) and every delegated IPv4 prefix
+(`Ipv4Prefixes`, a `/28` of 16 addresses each). With the default VPC CNI, pod IPs
+are secondaries on the nodes' ENIs, up to the per-ENI limit of the instance type,
+and in prefix mode each ENI takes whole `/28`s. The bundled pod subnet has 26 ENIs
+holding 200 addresses; counting ENIs would call it 10% full. Unassigned warm IPs
+the CNI keeps in reserve (`WARM_IP_TARGET`, `WARM_PREFIX_TARGET`) are counted as
+used, because they are: EC2 will not hand them to anything else, and the EC2 API
+does not say which of them a pod has. When the result disagrees with
+`AvailableIpAddressCount`, both numbers are reported, which doubles as a
+self-check: a gap means something is holding addresses outside the ENI list. A
+payload saved before addresses were collected has no `PrivateIpAddresses`, and
+each of its ENIs counts as one address.
 
 **Consumers, grouped by what they are.** `InterfaceType` identifies NAT gateways,
 VPC endpoints, load balancers, Lambda and EKS branch ENIs. Everything AWS reports
 as a plain `interface` is classified from its description, which is where the VPC
 CNI (`aws-K8S-i-…`), ELB (`ELB app/…`) and RDS ENIs hide. That is why the table
-can say `eks_pod 184` instead of "12 instances and 188 mystery addresses".
+can say `eks_pod 135` instead of "12 instances and a lot of mystery addresses".
+Consumer counts are addresses too, attributed to the ENI that holds them, so pod
+secondaries parked on a node's primary ENI show up under `instance`. The JSON
+report keeps the ENI count per subnet in `enis`.
 
 **A history file, because one sample is not a trend.** With `--history <path>`
 each run appends one newline-delimited JSON snapshot per subnet. From two or more

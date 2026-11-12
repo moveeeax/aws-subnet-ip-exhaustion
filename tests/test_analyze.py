@@ -118,7 +118,7 @@ def test_a_mismatch_with_the_aws_reported_count_is_surfaced():
     payload = make_payload("10.0.4.0/24", 200, subnet_id="subnet-0ddd", AvailableIpAddressCount=40)
     subnet = only(analyse(payload))
     assert subnet["aws_reported_free"] == 40
-    assert any("AWS reports 40 free" in reason for reason in subnet["reasons"])
+    assert any("AWS reports 40 free, address accounting says 51" in reason for reason in subnet["reasons"])
 
 
 def test_consumers_are_broken_down_per_subnet():
@@ -169,3 +169,22 @@ def test_forecast_of_an_already_full_subnet_is_zero_days():
     rate, days = forecast([(-10.0, 20.0), (0.0, 0.0)], 0.0)
     assert rate == pytest.approx(2.0, abs=0.01)
     assert days == 0.0
+
+
+def test_secondary_ips_and_prefixes_on_cni_enis_count_as_used_addresses():
+    payload = make_payload(
+        "10.0.9.0/24", 2, subnet_id="subnet-0fff", AvailableIpAddressCount=251 - 2 - 2 * 15 - 1 - 3 * 16
+    )
+    payload["network_interfaces"] += [
+        eni(80, "subnet-0fff", description="aws-K8S-i-0001", secondaries=14),
+        eni(81, "subnet-0fff", description="aws-K8S-i-0002", secondaries=14),
+        eni(82, "subnet-0fff", description="aws-K8S-i-0003", secondaries=0, prefixes=3),
+    ]
+    subnet = only(analyse(payload))
+    assert subnet["enis"] == 5
+    assert subnet["in_use"] == 2 + 30 + 1 + 48
+    assert subnet["free"] == 251 - 81
+    assert subnet["consumers"] == {"instance": 2, "eks_pod": 79}
+    # Address accounting matches what EC2 reports, so there is no mismatch line.
+    assert subnet["aws_reported_free"] == subnet["free"]
+    assert not any("AWS reports" in reason for reason in subnet["reasons"])

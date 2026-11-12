@@ -26,7 +26,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="aws-subnet-ip-exhaustion",
         description=(
             "Report real IP utilisation per VPC subnet and project when each one runs out, "
-            "counting the ENIs that actually consume the addresses."
+            "counting every address each ENI holds, pod secondaries and prefixes included."
         ),
     )
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")

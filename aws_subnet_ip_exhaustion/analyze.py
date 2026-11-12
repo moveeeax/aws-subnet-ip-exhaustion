@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 from .capacity import (
     count_consumers,
+    eni_addresses,
     subnet_total_addresses,
     usable_addresses,
     utilisation_pct,
@@ -140,7 +141,7 @@ def analyse(
         enis = enis_by_subnet.get(subnet_id, [])
         total = subnet_total_addresses(cidr)
         usable = usable_addresses(cidr)
-        in_use = len(enis)
+        in_use = sum(eni_addresses(eni) for eni in enis)
         free = usable - in_use
         utilisation = utilisation_pct(in_use, usable)
 
@@ -155,7 +156,7 @@ def analyse(
         extra_reasons = []
         reported = raw.get("AvailableIpAddressCount")
         if reported is not None and int(reported) != free:
-            extra_reasons.append(f"AWS reports {int(reported)} free, ENI accounting says {free}")
+            extra_reasons.append(f"AWS reports {int(reported)} free, address accounting says {free}")
 
         level, reasons = severity_for(utilisation, days_left, extra_reasons, thresholds)
         subnets.append(
@@ -169,6 +170,7 @@ def analyse(
                 "reserved": total - usable,
                 "usable": usable,
                 "in_use": in_use,
+                "enis": len(enis),
                 "free": free,
                 "utilisation_pct": utilisation,
                 "aws_reported_free": int(reported) if reported is not None else None,

@@ -4,10 +4,15 @@
 Three subnets in one VPC, shaped like an EKS cluster that is about to run out of
 pod addresses: a busy /24 pod subnet, a small /28 that is already critical, and a
 quiet /20 with plenty of room.
+
+The pod subnet is the reason the tool counts addresses rather than ENIs: its 26
+ENIs hold 200 addresses, because the VPC CNI parks pod IPs as secondaries on the
+nodes' ENIs.
 """
 
 from __future__ import annotations
 
+import ipaddress
 import json
 import os
 
@@ -41,7 +46,25 @@ SUBNETS = [
 ]
 
 
-def eni(number: int, subnet: str, **extra) -> dict:
+class Allocator:
+    """Hands out consecutive addresses per subnet, past the four reserved at the bottom."""
+
+    def __init__(self) -> None:
+        self.next: dict[str, int] = {}
+
+    def take(self, subnet: str, count: int) -> list[str]:
+        cidr = next(s["CidrBlock"] for s in SUBNETS if s["SubnetId"] == subnet)
+        network = ipaddress.ip_network(cidr)
+        start = self.next.get(subnet, 4)
+        self.next[subnet] = start + count
+        return [str(network[i]) for i in range(start, start + count)]
+
+
+ADDRESSES = Allocator()
+
+
+def eni(number: int, subnet: str, addresses: int = 1, **extra) -> dict:
+    """One ENI holding ``addresses`` private IPs: the primary, then secondaries."""
     record = {
         "NetworkInterfaceId": f"eni-{number:017x}",
         "SubnetId": subnet,
@@ -50,6 +73,9 @@ def eni(number: int, subnet: str, **extra) -> dict:
         "Status": "in-use",
     }
     record.update(extra)
+    record["PrivateIpAddresses"] = [
+        {"PrivateIpAddress": ip, "Primary": index == 0} for index, ip in enumerate(ADDRESSES.take(subnet, addresses))
+    ]
     return record
 
 
@@ -58,15 +84,20 @@ def main() -> None:
     number = 1
 
     pods = SUBNETS[0]["SubnetId"]
-    # 12 nodes, 184 pod ENIs, the usual managed bits: 200 addresses gone.
+    # 12 nodes whose primary ENIs carry 4 pod secondaries each (60 addresses),
+    # 9 CNI ENIs filled to the 15 IPv4 an m5.xlarge ENI takes (135), two EKS
+    # control-plane ENIs and three ELB ENIs: 26 ENIs, 200 addresses gone.
+    nodes = []
     for _ in range(12):
-        enis.append(eni(number, pods, Attachment={"InstanceId": f"i-{number:017x}"}))
+        nodes.append(f"i-{number:017x}")
+        enis.append(eni(number, pods, addresses=5, Attachment={"InstanceId": nodes[-1]}))
         number += 1
-    for _ in range(184):
-        enis.append(eni(number, pods, Description=f"aws-K8S-i-{number:017x}"))
+    for node in nodes[:9]:
+        enis.append(eni(number, pods, addresses=15, Description=f"aws-K8S-{node}", Attachment={"InstanceId": node}))
         number += 1
-    enis.append(eni(number, pods, Description="Amazon EKS prod-cluster"))
-    number += 1
+    for _ in range(2):
+        enis.append(eni(number, pods, Description="Amazon EKS prod-cluster"))
+        number += 1
     for name in ("app/prod-ingress/0a1b2c3d", "app/prod-ingress/0a1b2c3d", "net/prod-grpc/4d5e6f70"):
         enis.append(eni(number, pods, Description=f"ELB {name}"))
         number += 1
@@ -98,7 +129,8 @@ def main() -> None:
     with open(target, "w", encoding="utf-8") as handle:
         json.dump(payload, handle, indent=1)
         handle.write("\n")
-    print(f"wrote {target}: {len(SUBNETS)} subnets, {len(enis)} ENIs")
+    addresses = sum(len(e["PrivateIpAddresses"]) for e in enis)
+    print(f"wrote {target}: {len(SUBNETS)} subnets, {len(enis)} ENIs, {addresses} addresses")
 
 
 if __name__ == "__main__":

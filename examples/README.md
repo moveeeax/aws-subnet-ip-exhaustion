@@ -11,7 +11,7 @@ $ aws-subnet-ip-exhaustion --from-json tests/fixtures/eks-vpc.json
 SEVERITY  SUBNET       CIDR          AZ             USED/USABLE  FREE  UTIL%  DAYS LEFT  TOP CONSUMER
 --------  -----------  ------------  -------------  -----------  ----  -----  ---------  ------------
 CRITICAL  public-1b    10.0.2.0/28   eu-central-1b  10/11        1     90.9   n/a        instance 5
-WARN      eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   n/a        eks_pod 184
+WARN      eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   n/a        eks_pod 135
 ok        data-1c      10.0.16.0/20  eu-central-1c  42/4091      4049  1.0    n/a        instance 26
 ```
 
@@ -28,7 +28,7 @@ fixture is deliberately old.
 $ aws-subnet-ip-exhaustion --from-json tests/fixtures/eks-vpc.json \
     --history tests/fixtures/history-losing.ndjson --trend-window 3650 --no-write
 ...
-CRITICAL  eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   13.3       eks_pod 184
+CRITICAL  eks-pods-1a  10.0.1.0/24   eu-central-1a  200/251      51    79.7   13.3       eks_pod 135
 ```
 
 The subnet is still under `--critical-pct`, and it is critical anyway: the
